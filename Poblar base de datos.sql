@@ -7,58 +7,58 @@ VALUES
 
 -- Recepcionista 1
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno,  D_u)
-VALUES ('Recepcionista1Nombre', 'Recepcionista1ApellidoPaterno', 'Recepcionista1ApellidoMaterno',2);
+VALUES ('Ruben', 'Mercado', 'Flores',2);
 
 -- Recepcionista 2
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno, D_u)
-VALUES ('Recepcionista2Nombre', 'Recepcionista2ApellidoPaterno', 'Recepcionista2ApellidoMaterno',2);
+VALUES ('Yahir', 'Martinez', 'Gomez',2);
 
 -- Recepcionista 3
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno, D_u)
-VALUES ('Recepcionista3Nombre', 'Recepcionista3ApellidoPaterno', 'Recepcionista3ApellidoMaterno', 2);
+VALUES ('Carlos', 'Lico', 'Martinez', 2);
 
 
 -- Especialidad 1
 INSERT INTO Especialidades (Nombre_Especialidad)
-VALUES ('Especialidad1');
+VALUES ('Nutricion');
 
 -- Especialidad 2
 INSERT INTO Especialidades (Nombre_Especialidad)
-VALUES ('Especialidad2');
+VALUES ('Generales');
 
 -- Especialidad 3
 INSERT INTO Especialidades (Nombre_Especialidad)
-VALUES ('Especialidad3');
+VALUES ('Pediatria');
 
 -- Servicios asociados a Especialidad 1
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio1Especialidad1', 100.00);
+VALUES ('Servicio1Nutricion1', 100.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio2Especialidad1', 200.00);
+VALUES ('Servicio2Nutricion1', 200.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio3Especialidad1', 300.00);
+VALUES ('Servicio3Nutricion1', 300.00);
 
 -- Servicios asociados a Especialidad 2
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio1Especialidad2', 150.00);
+VALUES ('Servicio1Generales2', 150.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio2Especialidad2', 250.00);
+VALUES ('Servicio2Generales2', 250.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio3Especialidad2', 350.00);
+VALUES ('Servicio3Generales2', 350.00);
 
 -- Servicios asociados a Especialidad 3
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio1Especialidad3', 180.00);
+VALUES ('Servicio1Pediatria3', 180.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio2Especialidad3', 280.00);
+VALUES ('Servicio2Pediatria3', 280.00);
 
 INSERT INTO Servicios (Servicio, Costo)
-VALUES ('Servicio3Especialidad3', 380.00);
+VALUES ('Servicio3Pediatria3', 380.00);
 -- Insertar los valores en la tabla "Horarios"
 INSERT INTO Horarios (nombre) VALUES ('matutino');
 INSERT INTO Horarios (nombre) VALUES ('vespertino');
@@ -89,27 +89,27 @@ VALUES
 
 -- Médico 1
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u)
-VALUES ('Medico1Cedula', 'Medico1Nombre', 'Medico1ApellidoMaterno', 'Medico1ApellidoPaterno', 1, 1, 1, 3);
+VALUES ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1, 3);
 
 -- Médico 2
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u)
-VALUES ('Medico2Cedula', 'Medico2Nombre', 'Medico2ApellidoMaterno', 'Medico2ApellidoPaterno', 2, 2, 2, 3);
+VALUES ('F98765432109876543', 'Camilo', 'Medico2ApellidoMaterno', 'Medico2ApellidoPaterno', 2, 2, 2, 3);
 
 -- Médico 3
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u)
-VALUES ('Medico3Cedula', 'Medico3Nombre', 'Medico3ApellidoMaterno', 'Medico3ApellidoPaterno', 3, 3, 3, 3);
+VALUES ('G24681357902468135', 'Medico3Nombre', 'Medico3ApellidoMaterno', 'Medico3ApellidoPaterno', 3, 3, 3, 3);
 
 -- Paciente 1
 INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u)
-VALUES ('Paciente1NSS', 'Paciente1Nombre', 'Paciente1ApellidoPaterno', 'Paciente1ApellidoMaterno', 4);
+VALUES ('12345678901234567890', 'Paciente1Nombre', 'Paciente1ApellidoPaterno', 'Paciente1ApellidoMaterno', 4);
 
 -- Paciente 2
 INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u)
-VALUES ('Paciente2NSS', 'Paciente2Nombre', 'Paciente2ApellidoPaterno', 'Paciente2ApellidoMaterno', 4);
+VALUES ('98765432109876543210', 'Paciente2Nombre', 'Paciente2ApellidoPaterno', 'Paciente2ApellidoMaterno', 4);
 
 -- Paciente 3
 INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno, D_u)
-VALUES ('Paciente3NSS', 'Paciente3Nombre', 'Paciente3ApellidoPaterno', 'Paciente3ApellidoMaterno', 4);
+VALUES ('24681357902468135790', 'Paciente3Nombre', 'Paciente3ApellidoPaterno', 'Paciente3ApellidoMaterno', 4);
 
 -- Administrador 1
 INSERT INTO Administradores (Nombre, A_paterno, A_materno,  D_u)
