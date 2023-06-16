@@ -6,7 +6,7 @@ CREATE TABLE Tipo_usuario (
 
 -- 2Tabla Direccion
 CREATE TABLE Direccion (
-  ID_dir INT PRIMARY KEY,
+  ID_dir INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Estado VARCHAR(20),
   Delegacion VARCHAR(30),
   Colonia VARCHAR(30),
@@ -38,13 +38,13 @@ CREATE TABLE Consultorios (
 
 --6 Tabla Especialidades
 CREATE TABLE Especialidades (
-  ID_Especialidad INT PRIMARY KEY,
+  ID_Especialidad INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre_Especialidad VARCHAR(100)
 );
 
 --7 Tabla Horarios
 CREATE TABLE Horarios (
-  ID_H INT PRIMARY KEY,
+  ID_H INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre VARCHAR(50),
   Horarios VARCHAR(40),
   Diasemana VARCHAR(80)
@@ -55,14 +55,14 @@ CREATE TABLE Horarios (
 
 --9 Tabla Servicios
 CREATE TABLE Servicios (
-  ID_Servicio INT PRIMARY KEY,
+  ID_Servicio INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Servicio VARCHAR(100),
   Costo DECIMAL(10, 2)
 );
 
 --10 Tabla Administradores
 CREATE TABLE Administradores (
-  ID_admin INT PRIMARY KEY,
+  ID_admin INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre VARCHAR(60),
   A_paterno VARCHAR(60),
   A_materno VARCHAR(60),
@@ -74,7 +74,7 @@ CREATE TABLE Administradores (
 
 --11 Tabla Recepcionista
 CREATE TABLE Recepcionista (
-  ID_rep INT PRIMARY KEY,
+  ID_rep INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre VARCHAR(60),
   A_paterno VARCHAR(60),
   A_materno VARCHAR(60),
@@ -108,7 +108,7 @@ CREATE TABLE Medico (
 
 --13 Tabla Historial_clinico
 CREATE TABLE Historial_clinico (
-  No_HC INT IDENTITY(0,1) PRIMARY KEY,
+  No_HC INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Diagnistico VARCHAR(200),
   Fecha_creacion DATE,
   Observaciones VARCHAR(200),
@@ -145,7 +145,7 @@ CREATE TABLE Paciente (
 
 --15 Tabla Cita
 CREATE TABLE Cita (
-  ID_C INT PRIMARY KEY,
+  ID_C INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   NSS VARCHAR(20),
   Cedula VARCHAR(20),
   Fecha DATE,
@@ -194,7 +194,7 @@ CREATE TABLE Presentacion (
 
 -- 20 Tabla Medicamentos
 CREATE TABLE Medicamentos (
-  ID_Medicamento INT PRIMARY KEY,
+  ID_Medicamento INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre_Medicamento VARCHAR(100),
   ID_Presentacion INT,
   CONSTRAINT FK_Medicamentos_Presentacion FOREIGN KEY (ID_Presentacion) REFERENCES Presentacion (ID_P)
@@ -203,7 +203,7 @@ CREATE TABLE Medicamentos (
 
 -- 21 Tabla Receta
 CREATE TABLE Receta (
-  ID_R INT PRIMARY KEY,
+  ID_R INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   ID_Medicamento INT,
   Diagnistico VARCHAR(200),
   Fecha_creacion DATE,
