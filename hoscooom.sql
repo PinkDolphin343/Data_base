@@ -22,7 +22,7 @@ CREATE PROCEDURE dbo.AgregarCita
   @NSS VARCHAR(20),
   @Cedula VARCHAR(20),
   @Fecha DATE,
-  @Hora TIME,
+  @Hora varchar(8),
   @ID_Servicio INT
 AS
 BEGIN

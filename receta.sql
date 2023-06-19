@@ -19,13 +19,14 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE dbo.ObtenerMedicamentosRecetados
-  @NSS VARCHAR(20)
+  (@NSS VARCHAR(20),
+   @ID_R INT)
 AS
 BEGIN
   SELECT Receta.ID_R, Medicamentos.Nombre_Medicamento, Receta_Medicamento.Cantidad, Receta.Cedula
   FROM Receta
   INNER JOIN Receta_Medicamento ON Receta.ID_R = Receta_Medicamento.ID_R
   INNER JOIN Medicamentos ON Receta_Medicamento.ID_Medicamento = Medicamentos.ID_Medicamento
-  WHERE Receta.NSS = @NSS;
+  WHERE Receta.NSS = @NSS AND Receta.ID_R = @ID_R;
 END;
 

@@ -1,15 +1,27 @@
 
---Esta función retorna una tabla que contiene todos los registros del historial clínico del paciente correspondiente al NSS proporcionado.
-CREATE FUNCTION dbo.ObtenerHistorialClinico(@NSS VARCHAR(20))
-RETURNS TABLE
-AS
-RETURN (
-  SELECT *
-  FROM Historial_clinico
-  WHERE NSS = @NSS
-);
+--Esta funciï¿½n retorna una tabla que contiene todos los registros del historial clï¿½nico del paciente correspondiente al NSS proporcionado.
+-- CREATE FUNCTION dbo.ObtenerHistorialClinico(@NSS VARCHAR(20))
+-- RETURNS TABLE
+-- AS
+-- RETURN (
+--   SELECT *
+--   FROM Historial_clinico
+--   WHERE NSS = @NSS
+-- );
 
---Esta función calculará el costo total de una cita en función de los servicios seleccionados. Puedes utilizarla de la siguiente manera:
+
+CREATE FUNCTION dbo.obtenerEspecialidadCita(@ID_C INT)
+RETURNS VARCHAR(50)
+AS
+BEGIN
+  DECLARE @Especialidad VARCHAR(50);
+
+  SET @Especialidad = (SELECT TOP 1 e.Nombre_Especialidad from Cita c join Medico m on c.Cedula = m.Cedula join Especialidades e on m.ID_Especialidad= e.ID_Especialidad);
+
+  RETURN @Especialidad;
+END;
+
+--Esta funciï¿½n calcularï¿½ el costo total de una cita en funciï¿½n de los servicios seleccionados. Puedes utilizarla de la siguiente manera:
 CREATE FUNCTION dbo.CalcularCostoTotalCita(@ID_C INT)
 RETURNS DECIMAL(10, 2)
 AS

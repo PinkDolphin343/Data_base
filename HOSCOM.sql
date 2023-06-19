@@ -1,3 +1,5 @@
+create database hoscom;
+use hoscom;
 --1 Tabla Tipo_usuario
 CREATE TABLE Tipo_usuario (
   ID_u INT PRIMARY KEY,
@@ -16,9 +18,14 @@ CREATE TABLE Direccion (
 );
 
 -- 3Tabla Informacion_Contacto
+-- CREATE TABLE Informacion_Contacto (
+--   ID_info_contacto INT PRIMARY KEY,
+--   Telefono INT,
+--   Email VARCHAR(60)
+-- );
+
 CREATE TABLE Informacion_Contacto (
-  ID_info_contacto INT PRIMARY KEY,
-  Telefono INT,
+  Telefono VARCHAR(10) PRIMARY KEY,
   Email VARCHAR(60)
 );
 
@@ -60,6 +67,14 @@ CREATE TABLE Servicios (
   Costo DECIMAL(10, 2)
 );
 
+CREATE TABLE servicio_especialidad(
+  ID_Servicio INT,
+  ID_Especialidad INT,
+  CONSTRAINT FK_ServicioEspecialidad_Servicio FOREIGN KEY (ID_Servicio) REFERENCES Servicios (ID_Servicio),
+  CONSTRAINT FK_ServicioEspecialidad_Especialidad FOREIGN KEY (ID_Especialidad) REFERENCES Especialidades (ID_Especialidad),
+  PRIMARY KEY (ID_Servicio, ID_Especialidad)
+)
+
 --10 Tabla Administradores
 CREATE TABLE Administradores (
   ID_admin INT IDENTITY(1,1)  PRIMARY KEY,
@@ -68,8 +83,11 @@ CREATE TABLE Administradores (
   A_materno VARCHAR(60),
   ID_dir INT,
   D_u INT,
+  ID_info_contacto VARCHAR(10) NOT NULL,
+  password VARCHAR(50),
   CONSTRAINT FK_Admin_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
-  CONSTRAINT FK_Admin_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u)
+  CONSTRAINT FK_Admin_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u),
+  CONSTRAINT FK_Admin_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono),
 );
 
 --11 Tabla Recepcionista
@@ -79,10 +97,11 @@ CREATE TABLE Recepcionista (
   A_paterno VARCHAR(60),
   A_materno VARCHAR(60),
   ID_dir INT,
-  ID_info_contacto INT,
+  ID_info_contacto VARCHAR(10) NOT NULL,
   D_u INT,
+  password VARCHAR(50),
   CONSTRAINT FK_Recepcionista_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
-  CONSTRAINT FK_Recepcionista_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (ID_info_contacto),
+  CONSTRAINT FK_Recepcionista_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono),
   CONSTRAINT FK_Recepcionista_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u)
 );
 
@@ -95,13 +114,14 @@ CREATE TABLE Medico (
   ID_Especialidad INT,
   ID_H INT,
   ID_dir INT,
-  ID_info_contacto INT,
+  ID_info_contacto VARCHAR(10) NOT NULL,
   Id_Consultorio INT,
   D_u INT,
+  password VARCHAR(50),
   CONSTRAINT FK_Medico_Especialidad FOREIGN KEY (ID_Especialidad) REFERENCES Especialidades (ID_Especialidad),
   CONSTRAINT FK_Medico_Horarios FOREIGN KEY (ID_H) REFERENCES Horarios (ID_H),
   CONSTRAINT FK_Medico_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
-  CONSTRAINT FK_Medico_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (ID_info_contacto),
+  CONSTRAINT FK_Medico_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono),
   CONSTRAINT FK_Medico_Consultorio FOREIGN KEY (Id_Consultorio) REFERENCES Consultorios (ID_Consultorio),
   CONSTRAINT FK_Medico_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u)
 );
@@ -109,7 +129,7 @@ CREATE TABLE Medico (
 --13 Tabla Historial_clinico
 CREATE TABLE Historial_clinico (
   No_HC INT IDENTITY(1,1)  PRIMARY KEY,
-  Diagnistico VARCHAR(200),
+  Diagnostico VARCHAR(200),
   Fecha_creacion DATE,
   Observaciones VARCHAR(200),
   Nombre_Doc VARCHAR(60),
@@ -130,14 +150,21 @@ CREATE TABLE Paciente (
   A_materno VARCHAR(60),
   No_HC INT,
   ID_dir INT,
-  ID_info_contacto INT,
+  ID_info_contacto VARCHAR(10) NOT NULL,
   D_u INT,
+  password VARCHAR(50),
   CONSTRAINT FK_Paciente_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
-  CONSTRAINT FK_Paciente_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (ID_info_contacto),
+  CONSTRAINT FK_Paciente_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono),
   CONSTRAINT FK_Paciente_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u)
 );
 
 
+INSERT INTO Tipo_usuario (ID_u, Tipo)
+VALUES
+  (1, 'Administrador'),
+  (2, 'Recepcionista'),
+  (3, 'M�dico'),
+  (4, 'Paciente');
 
 
 
@@ -151,7 +178,7 @@ CREATE TABLE Cita (
   Fecha DATE,
   Estatus VARCHAR(50),
   COSTO DECIMAL(10, 2),
-  HORA TIME,
+  HORA varchar(8),
   ID_servicio int,
   CONSTRAINT FK_Cita_Paciente FOREIGN KEY (NSS) REFERENCES Paciente (NSS),
   CONSTRAINT FK_Cita_Medico FOREIGN KEY (Cedula) REFERENCES Medico (Cedula),
@@ -187,10 +214,11 @@ CREATE TABLE Cita_Piso (
 
 -- 19 Tabla Presentacion
 CREATE TABLE Presentacion (
-  ID_P INT PRIMARY KEY,
+  ID_P INT IDENTITY(1,1) PRIMARY KEY ,
   Presentacion VARCHAR(60),
-  Disponibilidad VARCHAR(20)
+  Disponibilidad VARCHAR(20) --La disponibilidad es en cantidad o que se pone ahi?
 );
+
 
 -- 20 Tabla Medicamentos
 CREATE TABLE Medicamentos (
@@ -201,14 +229,15 @@ CREATE TABLE Medicamentos (
 );
 
 
+
 -- 21 Tabla Receta
 CREATE TABLE Receta (
   ID_R INT IDENTITY(1,1)  PRIMARY KEY,
-  ID_Medicamento INT,
-  Diagnistico VARCHAR(200),
+  ID_Medicamento INT, --Es necesario? no cada receta puede tener mas de un medicamento?
+  Diagnostico VARCHAR(200),
   Fecha_creacion DATE,
   Observaciones VARCHAR(200),
-  Cantidad INT,
+  Cantidad INT, --cantidad de que?
   Cedula VARCHAR(20),
   NSS VARCHAR(20),
   ID_C INT, -- Nueva columna para el ID de la cita
@@ -222,6 +251,7 @@ CREATE TABLE Receta (
 CREATE TABLE Receta_Medicamento (
   ID_R INT,
   ID_Medicamento INT,
+  indicaciones VARCHAR(200),
   Cantidad INT,
   CONSTRAINT FK_RecetaMedicamento_Receta FOREIGN KEY (ID_R) REFERENCES Receta (ID_R),
   CONSTRAINT FK_RecetaMedicamento_Medicamento FOREIGN KEY (ID_Medicamento) REFERENCES Medicamentos (ID_Medicamento),
