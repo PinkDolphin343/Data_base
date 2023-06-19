@@ -1,4 +1,5 @@
 
+
 CREATE PROCEDURE dbo.AgregarCita14
   @NSS VARCHAR(20),
   @Cedula VARCHAR(20),
@@ -18,7 +19,7 @@ BEGIN
 
   -- Obtener el ID_Piso asociado a la especialidad
   DECLARE @ID_Piso INT;
-  SET @ID_Piso = (SELECT ID_Piso FROM Especialidades WHERE ID_Especialidad = (SELECT ID_Especialidad FROM Medico WHERE Cedula = @Cedula));
+  SET @ID_Piso = (SELECT ID_Piso FROM Pisos WHERE ID_Especialidad = (SELECT ID_Especialidad FROM Medico WHERE Cedula = @Cedula));
 
   -- Obtener el ID_Consultorio disponible en el piso asociado a la especialidad
   DECLARE @ID_Consultorio INT;
@@ -35,5 +36,4 @@ BEGIN
   -- Insertar registro en la tabla Cita_Servicio
   INSERT INTO Cita_Servicio (ID_C, ID_Servicio)
   VALUES (@ID_C, @ID_Servicio);
- 
-END;
+  END;

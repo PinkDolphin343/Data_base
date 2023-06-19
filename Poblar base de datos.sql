@@ -84,18 +84,12 @@ INSERT INTO Consultorios (ID_Consultorio, Numero_Consultorio, ID_Piso)
 VALUES
   (1, 101, 1),
   (2, 102, 1),
-  (3, 201, 2),
-  (4, 202, 2),
-  (5, 301, 3),
-  (6, 302, 3),
-  (7, 401, 4),
-  (8, 402, 4),
-  (9, 501, 5),
-  (10, 502, 5);
+  (3, 201, 2);
+
 
 -- M�dico 1
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u, password, ID_info_contacto)
-VALUES ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1, 3,'123456','2345678901');
+VALUES ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 3, 3,'123456','2345678901');
 
 -- Paciente 1
 INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password, ID_info_contacto)
@@ -110,38 +104,3 @@ insert into Medicamentos (Nombre_Medicamento, ID_Presentacion) values ('Medicame
 
 -- hasta aqui
 
--- M�dico 2
-INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u, password)
-VALUES ('F98765432109876543', 'Camilo', 'Medico2ApellidoMaterno', 'Medico2ApellidoPaterno', 2, 2, 2, 3,'123456');
-
--- M�dico 3
-INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u, password)
-VALUES ('G24681357902468135', 'Medico3Nombre', 'Medico3ApellidoMaterno', 'Medico3ApellidoPaterno', 3, 3, 3, 3,'123456');
-
-
-
--- Paciente 2
-INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password)
-VALUES ('98765432109876543210', 'Paciente2Nombre', 'Paciente2ApellidoPaterno', 'Paciente2ApellidoMaterno', 4,'123456');
-
--- Paciente 3
-INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno, D_u, password)
-VALUES ('24681357902468135790', 'Paciente3Nombre', 'Paciente3ApellidoPaterno', 'Paciente3ApellidoMaterno', 4,'123456');
-
-
-
--- Administrador 2
-INSERT INTO Administradores (Nombre, A_paterno, A_materno,  D_u, password)
-VALUES ('Administrador2Nombre', 'Administrador2ApellidoPaterno', 'Administrador2ApellidoMaterno',  1,'123456');
-
--- Administrador 3
-INSERT INTO Administradores (Nombre, A_paterno, A_materno,  D_u, password)
-VALUES ('Administrador3Nombre', 'Administrador3ApellidoPaterno', 'Administrador3ApellidoMaterno',  1,'123456');
-
--- Recepcionista 2
-INSERT INTO Recepcionista (Nombre, A_paterno, A_materno, D_u, password)
-VALUES ('Yahir', 'Martinez', 'Gomez',2,'123456');
-
--- Recepcionista 3
-INSERT INTO Recepcionista (Nombre, A_paterno, A_materno, D_u, password)
-VALUES ('Carlos', 'Lico', 'Martinez', 2,'123456');
