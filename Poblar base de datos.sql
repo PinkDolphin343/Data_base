@@ -1,14 +1,11 @@
-INSERT INTO Tipo_usuario (ID_u, Tipo)
+﻿INSERT INTO Tipo_usuario (ID_u, Tipo)
 VALUES
   (1, 'Administrador'),
   (2, 'Recepcionista'),
   (3, 'M�dico'),
   (4, 'Paciente');
 
-  CREATE TABLE Informacion_Contacto (
-  Telefono INT PRIMARY KEY,
-  Email VARCHAR(60)
-);
+
 
 INSERT INTO Informacion_Contacto (Telefono, Email)  VALUES
   ('1234567890', 'a@a.com'),
@@ -75,14 +72,13 @@ INSERT INTO Horarios (nombre) VALUES ('vespertino');
 INSERT INTO Horarios (nombre) VALUES ('nocturno');
 
 
-
-INSERT INTO Pisos (ID_Piso, Numero_Piso)
+INSERT INTO Pisos (ID_Piso, Numero_Piso, ID_Especialidad)
 VALUES
-  (1, 1),
-  (2, 2),
-  (3, 3),
-  (4, 4),
-  (5, 5);
+  (1, 1, 1), -- Asocia el primer piso con la primera especialidad
+  (2, 2, 2), -- Asocia el segundo piso con la segunda especialidad
+  (3, 3, 3); -- Asocia el tercer piso con la tercera especialidad
+  -- Continúa con el resto de pisos y especialidades
+
 
 INSERT INTO Consultorios (ID_Consultorio, Numero_Consultorio, ID_Piso)
 VALUES

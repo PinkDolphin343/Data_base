@@ -1,5 +1,5 @@
 create database hoscom;
-use hoscom;
+use miau;
 --1 Tabla Tipo_usuario
 CREATE TABLE Tipo_usuario (
   ID_u INT PRIMARY KEY,
@@ -28,11 +28,17 @@ CREATE TABLE Informacion_Contacto (
   Telefono VARCHAR(10) PRIMARY KEY,
   Email VARCHAR(60)
 );
-
+--6 Tabla Especialidades
+CREATE TABLE Especialidades (
+  ID_Especialidad INT IDENTITY(1,1)  PRIMARY KEY,
+  Nombre_Especialidad VARCHAR(100)
+);
 --4 Tabla Pisos
 CREATE TABLE Pisos (
   ID_Piso INT PRIMARY KEY,
-  Numero_Piso INT
+  Numero_Piso INT,
+  ID_Especialidad INT,
+  CONSTRAINT FK_Pisos_Especialidades FOREIGN KEY (ID_Especialidad) REFERENCES Especialidades (ID_Especialidad)
 );
 
 --5 Tabla Consultorios
@@ -43,11 +49,7 @@ CREATE TABLE Consultorios (
   CONSTRAINT FK_Consultorios_Pisos FOREIGN KEY (ID_Piso) REFERENCES Pisos (ID_Piso)
 );
 
---6 Tabla Especialidades
-CREATE TABLE Especialidades (
-  ID_Especialidad INT IDENTITY(1,1)  PRIMARY KEY,
-  Nombre_Especialidad VARCHAR(100)
-);
+
 
 --7 Tabla Horarios
 CREATE TABLE Horarios (
@@ -87,7 +89,7 @@ CREATE TABLE Administradores (
   password VARCHAR(50),
   CONSTRAINT FK_Admin_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
   CONSTRAINT FK_Admin_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u),
-  CONSTRAINT FK_Admin_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono),
+  CONSTRAINT FK_Admin_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono)
 );
 
 --11 Tabla Recepcionista
@@ -158,13 +160,6 @@ CREATE TABLE Paciente (
   CONSTRAINT FK_Paciente_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u)
 );
 
-
-INSERT INTO Tipo_usuario (ID_u, Tipo)
-VALUES
-  (1, 'Administrador'),
-  (2, 'Recepcionista'),
-  (3, 'M�dico'),
-  (4, 'Paciente');
 
 
 
