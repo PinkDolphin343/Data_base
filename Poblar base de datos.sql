@@ -7,15 +7,16 @@ VALUES
 
 
 
-INSERT INTO Informacion_Contacto (Telefono, Email)  VALUES
+INSERT INTO Informacion_Contacto (Telefono, Email) 
+VALUES
   --rep
   ('9876543210', 'a@a.com'),
-  ('1234567890', 'b@b.com'),
+  ('1234567891', 'b@b.com'),
   ('8765432109', 'c@c.com'),
   --med nut
-  ('2345678901', 'd@d.com'),
+  ('2345678555', 'd@d.com'),
   ('7654321098', 'e@e.com'),
-  ('3456789012', 'f@f.com'),
+  ('3456789777', 'f@f.com'),
     --med general
   ('6543210987', 'g@g.com'),
   ('4567890123', 'h@h.com'),
@@ -33,14 +34,14 @@ INSERT INTO Informacion_Contacto (Telefono, Email)  VALUES
   --pacientes
   ('2345678901', 'q@q.com'),
   ('3456789012', 'r@r.com'),
-  ('4567890123', 's@s.com');
+  ('4567899999', 's@s.com');
 -- Recepcionista 1
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno,  D_u, password, Telefono)
 VALUES ('Ruben', 'Mercado', 'Flores',2,'contrasenarep1','9876543210');
 
 -- Recepcionista 2
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno,  D_u, password, Telefono)
-VALUES ('Carlos', 'Lopez', 'Cruz',2,'contrasenarep2','1234567890');
+VALUES ('Carlos', 'Lopez', 'Cruz',2,'contrasenarep2','1234567891');
 
 -- Recepcionista 3
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno,  D_u, password, Telefono)
@@ -111,6 +112,8 @@ INSERT INTO Servicios (Servicio, Costo)
 VALUES ('Extracciones dentales', 1300.00);
 
 insert into servicio_especialidad (ID_Servicio, ID_Especialidad) values (10, 4), (11, 4), (12, 4);
+
+
 -- Insertar los valores en la tabla "Horarios"
 INSERT INTO Horarios (nombre) VALUES ('matutino');
 INSERT INTO Horarios (nombre) VALUES ('vespertino');
@@ -163,14 +166,14 @@ VALUES
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u, password, Telefono)
 VALUES
 -- Medico N1 matutino
-  ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, '123456', '2345678901'),
+  ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, '123456','2345678901'),
   -- Medico N1 vespertino
-  ('E12345678901234568', 'Juan', 'Gomez', 'Lopez', 1, 2, 2, 3, '234567', '7654321098'),
+  ('E12345678901234568', 'Juan', 'Gomez', 'Lopez', 1, 2, 2, 3, '234567','7654321098'),
   -- Medico N1 nocturno
-  ('E12345678901234569', 'Ana', 'Rodriguez', 'Hernandez', 1, 3, 3, 3, '345678', '3456789012'),
+  ('E12345678901234569', 'Ana', 'Rodriguez', 'Hernandez', 1, 3, 3, 3, '345678','3456789777'),
 
   
-  -- Medico MG1 matutino
+  --Medico MG1 matutino
   ('E12345678901234570', 'Pedro', 'Mendoza', 'Garcia', 2, 1, 6, 3, '456789', '6543210987'),
   -- Medico MG1 vespertino
   ('E12345678901234571', 'Luisa', 'Vargas', 'Soto', 2, 2, 7, 3, '567890', '4567890123'),
@@ -189,11 +192,11 @@ VALUES
 
    
   -- Medico OD1 matutino
-  ('E12345678901234576', 'Julia', 'Hernández', 'Martínez', 4, 1, 16, 3, '012345', '8901234567'),
+  ('E12345678901234111', 'Julia', 'Hernández', 'Martínez', 4, 1, 16, 3, '012345', '8901234567'),
    -- Medico OD1 vespertino
-  ('E12345678901234576', 'Fernanda', 'Martinez', 'Martínez', 4, 2, 17, 3, '012345', '9012345678'),
+  ('E12345678901234222', 'Fernanda', 'Martinez', 'Martínez', 4, 2, 17, 3, '012345', '9012345678'),
    -- Medico OD1 nocturno
-  ('E12345678901234576', 'Maria', 'Zamora', 'De leon', 4, 3, 18, 3, '012345', '0123456789');
+  ('E12345678901234333', 'Maria', 'Zamora', 'De leon', 4, 3, 18, 3, '012345', '0123456789');
 
   
 
@@ -202,7 +205,7 @@ INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password, Telefon
 VALUES 
    ('12345678901234567890', 'Marco', 'perez', 'cruz', 4,'123456','2345678901'),
  ('98765432109876543210', 'Fabiola', 'bernal', 'Mercado', 4, '654321', '3456789012'),
-  ('24681357902468135790', 'Pamela', 'Flores', 'Valverde', 4, '987654', '4567890123');
+  ('24681357902468135790', 'Pamela', 'Flores', 'Valverde', 4, '987654', '4567899999');
 
   
 

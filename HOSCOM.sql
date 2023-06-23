@@ -1,5 +1,4 @@
-create database hoscom;
-use miau;
+
 --1 Tabla Tipo_usuario
 CREATE TABLE Tipo_usuario (
   ID_u INT PRIMARY KEY,
