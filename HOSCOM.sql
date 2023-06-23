@@ -84,11 +84,11 @@ CREATE TABLE Administradores (
   A_materno VARCHAR(60),
   ID_dir INT,
   D_u INT,
-  ID_info_contacto VARCHAR(10) NOT NULL,
+  Telefono VARCHAR(10) NOT NULL,
   password VARCHAR(50),
   CONSTRAINT FK_Admin_Direccion FOREIGN KEY (ID_dir) REFERENCES Direccion (ID_dir),
   CONSTRAINT FK_Admin_TipoUsuario FOREIGN KEY (D_u) REFERENCES Tipo_usuario (ID_u),
-  CONSTRAINT FK_Admin_InfoContacto FOREIGN KEY (ID_info_contacto) REFERENCES Informacion_Contacto (Telefono)
+  CONSTRAINT FK_Admin_InfoContacto FOREIGN KEY (Telefono) REFERENCES Informacion_Contacto (Telefono)
 );
 
 --11 Tabla Recepcionista

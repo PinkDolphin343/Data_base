@@ -198,7 +198,7 @@ VALUES
   
 
 -- Paciente 1
-INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password, ID_info_contacto)
+INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password, Telefono)
 VALUES 
    ('12345678901234567890', 'Marco', 'perez', 'cruz', 4,'123456','2345678901'),
  ('98765432109876543210', 'Fabiola', 'bernal', 'Mercado', 4, '654321', '3456789012'),
@@ -207,7 +207,7 @@ VALUES
   
 
 -- Administrador 1
-INSERT INTO Administradores (Nombre, A_paterno, A_materno,  D_u, password, ID_info_contacto)
+INSERT INTO Administradores (Nombre, A_paterno, A_materno,  D_u, password, Telefono)
 VALUES ('Administrador1Nombre', 'Administrador1ApellidoPaterno', 'Administrador1ApellidoMaterno',  1,'123456','1234567890');
 -- Insertar datos en la tabla Presentacion
 INSERT INTO Presentacion (Presentacion)
