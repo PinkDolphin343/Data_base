@@ -240,8 +240,6 @@ CREATE TABLE Receta (
 CREATE TABLE Receta_Medicamento (
   ID_R INT,
   ID_Medicamento INT,
-  indicaciones VARCHAR(200),
-  Cantidad INT,
   CONSTRAINT FK_RecetaMedicamento_Receta FOREIGN KEY (ID_R) REFERENCES Receta (ID_R),
   CONSTRAINT FK_RecetaMedicamento_Medicamento FOREIGN KEY (ID_Medicamento) REFERENCES Medicamentos (ID_Medicamento),
   PRIMARY KEY (ID_R, ID_Medicamento)
