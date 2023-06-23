@@ -193,7 +193,7 @@ VALUES
    -- Medico OD1 vespertino
   ('E12345678901234576', 'Fernanda', 'Martinez', 'Martínez', 4, 2, 17, 3, '012345', '9012345678'),
    -- Medico OD1 nocturno
-  ('E12345678901234576', 'Maria', 'Zamora', 'De leon', 4, 3, 18, 3, '012345', '0123456789'),
+  ('E12345678901234576', 'Maria', 'Zamora', 'De leon', 4, 3, 18, 3, '012345', '0123456789');
 
   
 
