@@ -14,7 +14,7 @@ INSERT INTO Informacion_Contacto (Telefono, Email)  VALUES
   ('8765432109', 'c@c.com'),
   --med nut
   ('2345678901', 'd@d.com'),
-  ('7654321098', 'e@e.com');
+  ('7654321098', 'e@e.com'),
   ('3456789012', 'f@f.com'),
     --med general
   ('6543210987', 'g@g.com'),
@@ -121,14 +121,13 @@ INSERT INTO Pisos (ID_Piso, Numero_Piso, ID_Especialidad)
 VALUES
   (1, 1, 1), -- Asocia el primer piso con  Nutricion
   (2, 2, 2), -- Asocia el segundo piso con   Medicina General
-  (3, 3, 3); -- Asocia el tercer piso con  Pediatria
+  (3, 3, 3), -- Asocia el tercer piso con  Pediatria
   (4, 4, 4);  -- Asocia el tercer piso con  Odontologia
   -- Continúa con el resto de pisos y especialidades
 
 
+
 INSERT INTO Consultorios (ID_Consultorio, Numero_Consultorio, ID_Piso)
-VALUES
- INSERT INTO Consultorios (ID_Consultorio, Numero_Consultorio, ID_Piso)
 VALUES
   -- Piso 1 nutricion
   (1, 101, 1),
@@ -200,7 +199,8 @@ VALUES
 
 -- Paciente 1
 INSERT INTO Paciente (NSS, Nombre, A_paterno, A_materno,  D_u, password, ID_info_contacto)
-VALUES ('12345678901234567890', 'Marco', 'perez', 'cruz', 4,'123456','2345678901'),
+VALUES 
+   ('12345678901234567890', 'Marco', 'perez', 'cruz', 4,'123456','2345678901'),
  ('98765432109876543210', 'Fabiola', 'bernal', 'Mercado', 4, '654321', '3456789012'),
   ('24681357902468135790', 'Pamela', 'Flores', 'Valverde', 4, '987654', '4567890123');
 
