@@ -227,7 +227,6 @@ CREATE TABLE Receta (
   Diagnostico VARCHAR(200),
   Fecha_creacion DATE,
   Observaciones VARCHAR(200),
-  Cantidad INT, --cantidad de que?
   Cedula VARCHAR(20),
   NSS VARCHAR(20),
   ID_C INT, -- Nueva columna para el ID de la cita
@@ -240,6 +239,7 @@ CREATE TABLE Receta (
 CREATE TABLE Receta_Medicamento (
   ID_R INT,
   ID_Medicamento INT,
+    indicaciones VARCHAR(200),
   CONSTRAINT FK_RecetaMedicamento_Receta FOREIGN KEY (ID_R) REFERENCES Receta (ID_R),
   CONSTRAINT FK_RecetaMedicamento_Medicamento FOREIGN KEY (ID_Medicamento) REFERENCES Medicamentos (ID_Medicamento),
   PRIMARY KEY (ID_R, ID_Medicamento)
