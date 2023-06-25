@@ -26,7 +26,8 @@ RETURN
   SELECT Cita.ID_C, Cita.NSS, Cita.Cedula, Cita.Fecha, Cita.Estatus, Cita.Costo, Cita.HORA,
          Cita_Servicio.ID_Servicio, Servicios.Servicio, Servicios.Costo AS CostoServicio,
          Cita_Consultorio.ID_Consultorio, Consultorios.Numero_Consultorio,
-         Cita_Piso.ID_Piso, Pisos.Numero_Piso
+         Cita_Piso.ID_Piso, Pisos.Numero_Piso, dbo.obtenerEspecialidadCita(@ID_C) AS Especialidad,
+         CONCAT(Medico.Nombre, ' ', Medico.A_Paterno, ' ', Medico.A_materno) AS NombreMedico
   FROM Cita
   LEFT JOIN Cita_Servicio ON Cita.ID_C = Cita_Servicio.ID_C
   LEFT JOIN Servicios ON Cita_Servicio.ID_Servicio = Servicios.ID_Servicio
@@ -34,5 +35,6 @@ RETURN
   LEFT JOIN Consultorios ON Cita_Consultorio.ID_Consultorio = Consultorios.ID_Consultorio
   LEFT JOIN Cita_Piso ON Cita.ID_C = Cita_Piso.ID_C
   LEFT JOIN Pisos ON Cita_Piso.ID_Piso = Pisos.ID_Piso
+  join Medico on Cita.Cedula = Medico.Cedula
   WHERE Cita.ID_C = @ID_C
 );

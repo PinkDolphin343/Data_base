@@ -16,7 +16,19 @@ AS
 BEGIN
   DECLARE @Especialidad VARCHAR(50);
 
-  SET @Especialidad = (SELECT TOP 1 e.Nombre_Especialidad from Cita c join Medico m on c.Cedula = m.Cedula join Especialidades e on m.ID_Especialidad= e.ID_Especialidad);
+  SET @Especialidad = (SELECT TOP 1 e.Nombre_Especialidad from Cita c join Medico m on c.Cedula = m.Cedula join Especialidades e on m.ID_Especialidad= e.ID_Especialidad where c.ID_C = @ID_C);
+
+  RETURN @Especialidad;
+END;
+
+
+CREATE FUNCTION dbo.obtenerIDEspecialidadCita(@ID_C INT)
+RETURNS Int
+AS
+BEGIN
+  DECLARE @Especialidad Int;
+
+  SET @Especialidad = (SELECT e.ID_Especialidad from Cita c join Medico m on c.Cedula = m.Cedula join Especialidades e on m.ID_Especialidad= e.ID_Especialidad where c.ID_C = @ID_C);
 
   RETURN @Especialidad;
 END;

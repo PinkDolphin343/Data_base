@@ -236,10 +236,16 @@ CREATE TABLE Receta (
   CONSTRAINT FK_Receta_Cita FOREIGN KEY (ID_C) REFERENCES Cita (ID_C)
 );
 
+-- insert into Receta (Diagnostico, Fecha_creacion, Observaciones, Cedula, NSS, ID_C) values ('influenza', '2020-05-01', 'El paciente presenta dolor de pecho anormal',  'E12345678901234567', '12345678901234567890', 1);
+-- insert into Receta (Diagnostico, Fecha_creacion, Observaciones, Cedula, NSS, ID_C) values ('influenza', '2020-05-01', 'El paciente presenta dolor de pecho anormal',  'E12345678901234567', '12345678901234567890', 2);
+-- insert into Receta (Diagnostico, Fecha_creacion, Observaciones, Cedula, NSS, ID_C) values ('influenza', '2020-05-01', 'El paciente presenta dolor de pecho anormal',  'E12345678901234567', '12345678901234567890', 3);
+-- insert into Receta (Diagnostico, Fecha_creacion, Observaciones, Cedula, NSS) values ('influenza', '2020-05-01', 'El paciente presenta dolor de pecho anormal',  'E12345678901234567', '12345678901234567890')
+
 -- 22 Tabla Receta_Medicamento
 CREATE TABLE Receta_Medicamento (
   ID_R INT,
   ID_Medicamento INT,
+  indicaciones VARCHAR(200),
   CONSTRAINT FK_RecetaMedicamento_Receta FOREIGN KEY (ID_R) REFERENCES Receta (ID_R),
   CONSTRAINT FK_RecetaMedicamento_Medicamento FOREIGN KEY (ID_Medicamento) REFERENCES Medicamentos (ID_Medicamento),
   PRIMARY KEY (ID_R, ID_Medicamento)

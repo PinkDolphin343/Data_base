@@ -5,13 +5,14 @@ CREATE PROCEDURE dbo.AgregarCita14
   @Cedula VARCHAR(20),
   @Fecha DATE,
   @Hora varchar(8),
-  @ID_Servicio INT
+  @ID_Servicio INT,
+  @costo decimal(10,2)
 AS
 BEGIN
 
   -- Insertar registro en la tabla Cita
-  INSERT INTO Cita (NSS, Cedula, Fecha, HORA, Estatus)
-  VALUES (@NSS, @Cedula, @Fecha, @Hora, 'Pendiente');
+  INSERT INTO Cita (NSS, Cedula, Fecha, HORA, Estatus, COSTO)
+  VALUES (@NSS, @Cedula, @Fecha, @Hora, 'Pendiente', @costo);
 
   -- Obtener el ID_C de la nueva cita insertada
   DECLARE @ID_C INT;
@@ -23,7 +24,7 @@ BEGIN
 
   -- Obtener el ID_Consultorio disponible en el piso asociado a la especialidad
   DECLARE @ID_Consultorio INT;
-  SET @ID_Consultorio = (SELECT TOP 1 ID_Consultorio FROM Consultorios WHERE ID_Piso = @ID_Piso AND ID_Consultorio NOT IN (SELECT ID_Consultorio FROM Cita_Consultorio WHERE ID_C IN (SELECT ID_C FROM Cita WHERE Fecha = @Fecha)));
+  SET @ID_Consultorio = (SELECT Id_Consultorio from medico where Cedula = @Cedula);
 
   -- Insertar registro en la tabla Cita_Consultorio
   INSERT INTO Cita_Consultorio (ID_C, ID_Consultorio)

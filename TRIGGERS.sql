@@ -21,7 +21,7 @@ BEGIN
 END;
 
 
---Este nuevo trigger se ejecutar� despu�s de que se realice una inserci�n en la tabla "Receta". Actualiza los valores de "Diagnistico", "Fecha_creacion" y "Observaciones" en la tabla "Historial_clinico" 
+--Este nuevo trigger se ejecutar� despu�s de que se realice una inserci�n en la tabla "Receta". Actualiza los valores de "Diagnostico", "Fecha_creacion" y "Observaciones" en la tabla "Historial_clinico" 
 --bas�ndose en la coincidencia de "ID_C" y "NSS" entre la tabla "Historial_clinico" y la tabla "Cita
 
 CREATE TRIGGER TR_CrearHistorialClinicoReceta
@@ -35,14 +35,23 @@ BEGIN
   DECLARE @ID_C INT, @NSS VARCHAR(20), @Diagnostico VARCHAR(100), @FechaCreacion DATE, @Observaciones VARCHAR(200);
 
   -- Obtener valores de la fila insertada en Receta
-  SELECT @ID_C = r.ID_C, @NSS = c.NSS, @Diagnostico = r.Diagnistico, @FechaCreacion = r.Fecha_creacion, @Observaciones = r.Observaciones
+  IF EXISTS (SELECT * FROM Cita where ID_C=(select r.ID_C from inserted as r))
+  BEGIN
+  SELECT @ID_C = r.ID_C, @NSS = c.NSS, @Diagnostico = r.Diagnostico, @FechaCreacion = r.Fecha_creacion, @Observaciones = r.Observaciones
   FROM inserted AS r
   JOIN Cita AS c ON r.ID_C = c.ID_C;
 
   -- Actualizar valores en Historial_clinico
   UPDATE Historial_clinico
-  SET Diagnistico = @Diagnostico, Fecha_creacion = @FechaCreacion, Observaciones = @Observaciones
+  SET Diagnostico = @Diagnostico, Fecha_creacion = @FechaCreacion, Observaciones = @Observaciones
   WHERE ID_C = @ID_C AND NSS = @NSS;
+  END
+  ELSE
+  BEGIN
+  SELECT @NSS = r.NSS, @Diagnostico = r.Diagnostico, @FechaCreacion = r.Fecha_creacion, @Observaciones = r.Observaciones
+  FROM inserted AS r;
+  insert into Historial_clinico (NSS, Diagnostico, Fecha_creacion, Observaciones, horario) values (@NSS, @Diagnostico, @FechaCreacion, @Observaciones, CONVERT(TIME, GETDATE()));
+  END
 END;
 
 
