@@ -227,7 +227,6 @@ CREATE TABLE Receta (
   Diagnostico VARCHAR(200),
   Fecha_creacion DATE,
   Observaciones VARCHAR(200),
-  Cantidad INT, --cantidad de que?
   Cedula VARCHAR(20),
   NSS VARCHAR(20),
   ID_C INT, -- Nueva columna para el ID de la cita
