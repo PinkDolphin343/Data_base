@@ -24,11 +24,11 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT Receta.ID_R, Receta.Diagnostico, Receta.Fecha_creacion, Receta.Observaciones, Receta.Cantidad,
+    SELECT Receta.ID_R, Receta.Diagnostico, Receta.Fecha_creacion, Receta.Observaciones,
            CONCAT(Paciente.Nombre, ' ', Paciente.A_paterno, ' ', Paciente.A_materno) AS NombrePaciente,
            CONCAT(Medico.Nombre, ' ', Medico.A_Paterno, ' ', Medico.A_materno) AS NombreMedico,
            Medicamentos.ID_Medicamento, Medicamentos.Nombre_Medicamento, Presentacion.Presentacion,
-           Receta_Medicamento.indicaciones
+           Receta_Medicamento.indicaciones, 
     FROM Receta
     INNER JOIN Receta_Medicamento ON Receta.ID_R = Receta_Medicamento.ID_R
     INNER JOIN Medicamentos ON Receta_Medicamento.ID_Medicamento = Medicamentos.ID_Medicamento

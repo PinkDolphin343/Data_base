@@ -11,7 +11,7 @@ BEGIN
   SELECT @FechaCreacion = Fecha, @NSS = NSS, @IDCita = ID_C
   FROM inserted;
 
-  -- Obtener el nombre del médico y el consultorio
+  -- Obtener el nombre del mï¿½dico y el consultorio
   SELECT @NombreDoctor = Medico.Nombre, @Consultorio = Consultorios.ID_Consultorio
   FROM Medico
   INNER JOIN Cita ON Medico.Cedula = Cita.Cedula
@@ -27,7 +27,7 @@ BEGIN
   INSERT INTO Historial_clinico (Fecha_creacion, Nombre_Doc, Consultorio, Costo, horario, NSS, ID_C,Operacion)
   VALUES (@FechaCreacion, @NombreDoctor, @Consultorio, @Costo, @Horario, @NSS, @IDCita,'Creada');
 END;
-DROP TRIGGER TRG_CrearHistorialClinico;
+--DROP TRIGGER TRG_CrearHistorialClinico;
 
 
 
@@ -67,7 +67,7 @@ END;
 
 
 --EXEC InsertarReceta 
- -- @Diagnostico = 'Valor del diagnóstico',
+ -- @Diagnostico = 'Valor del diagnï¿½stico',
  -- @FechaCreacion = '2050-06-23',
  -- @Observaciones = 'Valor de las observaciones',
  -- @CedulaMedico = 'E12345678901234568',
@@ -114,7 +114,7 @@ END;
 
 -- Actualizar una receta existente
 --UPDATE Receta
---SET Diagnostico = 'Nuevo diagnóstico',
+--SET Diagnostico = 'Nuevo diagnï¿½stico',
  --   Observaciones = 'Nuevas observaciones'
 --WHERE ID_R = 13; -- ID de la receta que deseas actualizar
 
