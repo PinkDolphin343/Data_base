@@ -134,6 +134,8 @@ CREATE TABLE Historial_clinico (
   Consultorio INT,
   Costo DECIMAL(10, 2),
   horario TIME,
+  ID_R INT,
+  Operacion VARCHAR(30)
   NSS VARCHAR(20),
   ID_C INT,);
 
