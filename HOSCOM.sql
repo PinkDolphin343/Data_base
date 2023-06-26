@@ -129,13 +129,13 @@ CREATE TABLE Medico (
 --13 Tabla Historial_clinico
 CREATE TABLE Historial_clinico (
   No_HC INT IDENTITY(1,1)  PRIMARY KEY,
-  Diagnostico VARCHAR(200),
   Fecha_creacion DATE,
-  Observaciones VARCHAR(200),
   Nombre_Doc VARCHAR(60),
   Consultorio INT,
   Costo DECIMAL(10, 2),
   horario TIME,
+  ID_R INT,
+  Operacion VARCHAR(30)
   NSS VARCHAR(20),
   ID_C INT,);
 
@@ -263,3 +263,4 @@ CREATE TABLE CitasCanceladas (
  
  ALTER TABLE Historial_clinico ADD CONSTRAINT FK_HistorialClinico_Paciente FOREIGN KEY (NSS) REFERENCES Paciente (NSS);
 
+ALTER TABLE Historial_clinico ADD CONSTRAINT FK_Historial_clinico_Receta FOREIGN KEY (ID_R) REFERENCES Receta (ID_R);

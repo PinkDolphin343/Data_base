@@ -166,7 +166,7 @@ VALUES
 INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,  Id_Consultorio, D_u, password, Telefono)
 VALUES
 -- Medico N1 matutino
-  ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, '123456','2345678901'),
+  ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, '123456','2345678555'),
   -- Medico N1 vespertino
   ('E12345678901234568', 'Juan', 'Gomez', 'Lopez', 1, 2, 2, 3, '234567','7654321098'),
   -- Medico N1 nocturno
