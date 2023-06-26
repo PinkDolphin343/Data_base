@@ -20,6 +20,32 @@ BEGIN
   VALUES (@ID_C, @NSS, @Costo);
 END;
 
+--
+
+
+
+CREATE TRIGGER TR_RegistrarCancelacionCita
+ON Cita
+AFTER DELETE
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  -- Declarar variables
+  DECLARE @NSS VARCHAR(20), @Costo DECIMAL(10, 2), @Fecha DATE, @Hora varchar(8), @Cedula varchar(20);
+
+  -- Obtener valores de la fila insertada
+  SELECT @NSS = NSS, @Costo = COSTO, @Fecha = Fecha, @Hora = HORA, @Cedula = Cedula
+  FROM deleted;
+
+  -- Insertar valores en Historial_clinico
+  INSERT INTO CitasCanceladas (NSS, Costo, Fecha, HORA, Cedula)
+  VALUES (@NSS, @Costo, @Fecha, @Hora, @Cedula);
+END;
+
+--
+
+
 
 --Este nuevo trigger se ejecutar� despu�s de que se realice una inserci�n en la tabla "Receta". Actualiza los valores de "Diagnostico", "Fecha_creacion" y "Observaciones" en la tabla "Historial_clinico" 
 --bas�ndose en la coincidencia de "ID_C" y "NSS" entre la tabla "Historial_clinico" y la tabla "Cita

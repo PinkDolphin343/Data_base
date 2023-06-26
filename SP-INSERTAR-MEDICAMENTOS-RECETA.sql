@@ -32,7 +32,7 @@ BEGIN
     FROM Medicamentos
     WHERE ID_Medicamento IN (SELECT value FROM STRING_SPLIT(@MedicamentosIDs, ','));
 
-    -- Mostrar mensaje de éxito
+    -- Mostrar mensaje de ï¿½xito
     SELECT 'Medicamentos insertados en Receta_Medicamento' AS Mensaje;
   END
   ELSE

@@ -250,6 +250,16 @@ CREATE TABLE Receta_Medicamento (
   PRIMARY KEY (ID_R, ID_Medicamento)
 );
 
+-- 23 Tabla CitasCanceladas
+CREATE TABLE CitasCanceladas (
+  IdCitaCancelada INT IDENTITY(1,1) PRIMARY KEY,
+  NSS VARCHAR(20),
+  Cedula VARCHAR(20),
+  Fecha DATE,
+  COSTO DECIMAL(10, 2),
+  HORA varchar(8)
+);
+
  
  ALTER TABLE Historial_clinico ADD CONSTRAINT FK_HistorialClinico_Paciente FOREIGN KEY (NSS) REFERENCES Paciente (NSS);
 
