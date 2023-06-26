@@ -14,7 +14,7 @@ BEGIN
   INSERT INTO Cita (NSS, Cedula, Fecha, HORA, Estatus, COSTO)
   VALUES (@NSS, @Cedula, @Fecha, @Hora, 'Pendiente', @costo);
 
-  -- Obtener el ID_C de la nueva cita insertada
+  -- Obtener el ID_C de la nueva cita insertaday
   DECLARE @ID_C INT;
   SET @ID_C = SCOPE_IDENTITY();
 
