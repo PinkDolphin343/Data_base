@@ -44,7 +44,8 @@ EXEC InsertarReceta @Diagnostico = 'Valor del diagn�stico',@FechaCreacion = '2
 INSERT INTO Receta_Medicamento(ID_R,ID_medicamento)
 VALUES (,);
 
-
+--SPOBETENERCITAS POR MEDICO
+EXEC ObtenerCitasPorMedico @ID_Medico = 'E12345678901234568';
 
 --TTRIGGGGEEEEEEEERS
 
