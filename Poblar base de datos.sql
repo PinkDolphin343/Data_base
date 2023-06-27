@@ -16,25 +16,93 @@ VALUES
   --med nut
   ('2345678555', 'd@d.com'),
   ('7654321098', 'e@e.com'),
-  ('3456789777', 'f@f.com'),
+  ('3456789777', 'f@f.com'),  
+  
+  ('1111111111', 't@t.com'),
+  ('2222222222', 'u@u.com'),
+  ('3333333333', 'v@v.com'),
+  ('4444444444', 'w@w.com'),
+
+  ('5555555555', 'x@x.com'),
+  ('6666666666', 'y@y.com'),
+   ('7777777777', 'z@z.com'),
+  ('8888888888', 'aa@aza.com'),
+
+  ('9999999999', 'bb@bb.com'),
+  ('0000000001', 'cc@cc.com'),
+  ('8888888000', 'aza@aawa.com'),
+  ('9999999997', 'bfqb@bfqwb.com'),
+  ('0000000000', 'ccfa@cqc.com'),
     --med general
   ('6543210987', 'g@g.com'),
   ('4567890123', 'h@h.com'),
   ('5432109876', 'i@i.com'),
+  ('1111222233', 'dd@dd.com'),
+  ('4444555566', 'ee@ee.com'),
+  ('7777888899', 'ff@ff.com'),
+
+ 
+  ('2222333344', 'gg@gg.com'),
+  ('5555666777', 'hh@hh.com'),
+  ('8888999900', 'ii@ii.com'),
+    ('1111000011', 'jj@jj.com'),
+  ('4444333322', 'kk@kk.com'),
+  ('7777666655', 'll@ll.com'),
+
+  ('2222111133', 'mm@mm.com'),
     --med pediatria
   ('5678901234', 'j@j.com'),
   ('6789012345', 'k@k.com'),
   ('7890123456', 'l@l.com'),
+
+    ('5555444466', 'nn@nn.com'),
+  ('8888777799', 'oo@oo.com'),
+  ('1111222288', 'pp@pp.com'),
+
+  ('4444555533', 'qq@qq.com'),
+  ('7777888866', 'rr@rr.com'),
+
+  ('2222333355', 'ss@ss.com'),
+ 
+ ('5555666788', 'tt@tt.com'),
+  ('8888999911', 'uu@uu.com'),
+  ('1111000022', 'vv@vv.com'),
+ 
+ ('4444333344', 'ww@ww.com'),
     --med odont
 	('8901234567', 'm@m.com'),
   ('9012345678', 'n@n.com'),
-  ('0123456789', 'o@o.com'),
+  ('0123456789', 'o@o.com'),  
+  ('7777666677', 'xx@xx.com'),
+    
+  ('1111666677', 'aaa@aa.com'),
+  ('2222333388', 'bbb@bb.com'),
+  ('4444555599', 'ccc@cc.com'),
+
+
+  ('3333222211', 'ddd@dd.com'),
+  ('5555444422', 'eee@ee.com'),
+  ('6666777799', 'fff@ff.com'),
+
+ 
+  ('7777111133', 'ggg@gg.com'),
+  ('8888444433', 'hhh@hh.com'),
+  ('9999888899', 'iii@ii.com')
   --admin
   ('1234567890', 'p@p.com'),
   --pacientes
   ('2345678901', 'q@q.com'),
   ('3456789012', 'r@r.com'),
   ('4567899999', 's@s.com');
+
+
+ 
+  
+
+
+
+
+
 -- Recepcionista 1
 INSERT INTO Recepcionista (Nombre, A_paterno, A_materno,  D_u, password, Telefono)
 VALUES ('Ruben', 'Mercado', 'Flores',2,'contrasenarep1','9876543210');
@@ -167,12 +235,38 @@ INSERT INTO Medico (Cedula, Nombre, A_materno, A_Paterno, ID_Especialidad, ID_H,
 VALUES
 -- Medico N1 matutino
   ('E12345678901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, '123456','2345678555'),
-  -- Medico N1 vespertino
-  ('E12345678901234568', 'Juan', 'Gomez', 'Lopez', 1, 2, 2, 3, '234567','7654321098'),
-  -- Medico N1 nocturno
-  ('E12345678901234569', 'Ana', 'Rodriguez', 'Hernandez', 1, 3, 3, 3, '345678','3456789777'),
 
-  
+   ('E123456y8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 2,3, 'a12345z','1111111111'),
+    ('E123456p8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 3,3, 'b23456y','2222222222'),
+	 ('E123456v8906234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 4,3, 'c34567x','3333333333'),
+	  ('E123456x8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 5,3, 'd45678w','4444444444'),
+  -- Medico N1 vespertino
+  ('E12345678901234568', 'Juan', 'Gomez', 'Lopez', 1, 2, 1, 3, 'e56789v','7654321098'),
+
+   ('E123456l8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 2, 2,3, 'f67890u','5555555555'),
+    ('E123456m8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 2, 3,3, 'g78901t','6666666666'),
+	 ('E123456t8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 2, 4,3, 'i90123r','7777777777'),
+	  ('E123456s8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 2, 5,3, 'j01234q','8888888888'),
+  -- Medico N1 nocturno
+  ('E12345678901234569', 'Ana', 'Rodriguez', 'Hernandez', 1, 3, 3, 3, 'k54321p','3456789777'),
+
+   ('E123456h8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, 'l65432o','9999999999'),
+    ('E123456n8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, 'm76543n','0000000001'),
+	 ('E123456g8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, 'n87654m','8888888000'),
+	  ('E123456f8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, 'o98765l','9999999997'),
+	   ('E123456a8901234567', 'Sugu', 'Chaidez', 'Perez', 1, 1, 1,3, 'p09876k','0000000000'),
+	   
+
+
+
+
+
+
+
+
+
+
+
   --Medico MG1 matutino
   ('E12345678901234570', 'Pedro', 'Mendoza', 'Garcia', 2, 1, 6, 3, '456789', '6543210987'),
   -- Medico MG1 vespertino
