@@ -28,12 +28,15 @@ RETURN
            CONCAT(Paciente.Nombre, ' ', Paciente.A_paterno, ' ', Paciente.A_materno) AS NombrePaciente,
            CONCAT(Medico.Nombre, ' ', Medico.A_Paterno, ' ', Medico.A_materno) AS NombreMedico,
            Medicamentos.ID_Medicamento, Medicamentos.Nombre_Medicamento, Presentacion.Presentacion,
-           Receta_Medicamento.indicaciones, 
+           Receta_Medicamento.indicaciones, dbo.obtenerEspecialidadCita((select ID_C from Receta where ID_R = @IDReceta)) as Especialidad,
+           Paciente.NSS, Medico.Cedula, Consultorios.Numero_Consultorio, Horarios.Nombre as turno
     FROM Receta
     INNER JOIN Receta_Medicamento ON Receta.ID_R = Receta_Medicamento.ID_R
     INNER JOIN Medicamentos ON Receta_Medicamento.ID_Medicamento = Medicamentos.ID_Medicamento
     INNER JOIN Presentacion ON Medicamentos.ID_Presentacion = Presentacion.ID_P
     INNER JOIN Paciente ON Receta.NSS = Paciente.NSS
     INNER JOIN Medico ON Receta.Cedula = Medico.Cedula
+    INNER JOIN Consultorios on Medico.ID_Consultorio = Consultorios.ID_Consultorio
+    INNER JOIN Horarios on Medico.ID_H = Horarios.ID_H
     WHERE Receta.ID_R = @IDReceta
 )
