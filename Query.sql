@@ -47,6 +47,11 @@ VALUES (,);
 --SPOBETENERCITAS POR MEDICO
 EXEC ObtenerCitasPorMedico @ID_Medico = 'E12345678901234568';
 
+
+--obetener recetas por medico 
+EXEC ObtenerRecetasPorMedico @Cedula = 'E12345678901234567';
+
+
 --TTRIGGGGEEEEEEEERS
 
 -- Actualizar una receta existente
