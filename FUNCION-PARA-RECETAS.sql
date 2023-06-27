@@ -29,7 +29,8 @@ RETURN
            CONCAT(Medico.Nombre, ' ', Medico.A_Paterno, ' ', Medico.A_materno) AS NombreMedico,
            Medicamentos.ID_Medicamento, Medicamentos.Nombre_Medicamento, Presentacion.Presentacion,
            Receta_Medicamento.indicaciones, dbo.obtenerEspecialidadCita((select ID_C from Receta where ID_R = @IDReceta)) as Especialidad,
-           Paciente.NSS, Medico.Cedula, Consultorios.Numero_Consultorio, Horarios.Nombre as turno
+           Paciente.NSS, Medico.Cedula, Consultorios.Numero_Consultorio, Horarios.Nombre as turno,
+           costo=(select costo from cita where ID_C=(select ID_C from Receta where ID_R = @IDReceta))
     FROM Receta
     INNER JOIN Receta_Medicamento ON Receta.ID_R = Receta_Medicamento.ID_R
     INNER JOIN Medicamentos ON Receta_Medicamento.ID_Medicamento = Medicamentos.ID_Medicamento
